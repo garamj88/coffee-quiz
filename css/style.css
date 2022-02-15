@@ -1,16 +1,15 @@
 body {
-  background-color: var(--body-bg);
+  background-color: white;
   font-family: 'Maven Pro', sans-serif;
   margin: 0;
-  display: grid;
+  display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  min-height: 100vh;
 }
 
 #header {
   text-align: center;
-}
-
-#quiz {
-  justify-self: center;
+  padding-bottom: 3%;
 }

@@ -1,69 +1,80 @@
+// objects of questions (10) with answers, the correct answer, and explanation
+// The correct answer property will have the idx # for single answer questions
+// And for Correct (Yes) / Incorrect (No) questions, true = 1, false = 0
+
+
 const spellingQuiz = [
   {
     question: 'Cappuccino',
-    answer: 'Correct',
+    options: ['Incorrect', 'Correct'],
+    answer: 1,
     explanation: null
   },
 
   {
     question: 'Arabicia',
-    answer: 'Incorrect',
+    options: ['Incorrect', 'Correct'],
+    answer: 0,
     explanation: 'It\'s Arabica'
   },
 
   {
     question: 'Macchiato',
-    answer: 'Correct',
+    options: ['Incorrect', 'Correct'],
+    answer: 1,
     explanation: null
   },
 
   {
     question: 'Frappacinno',
-    answer: 'Incorrect',
+    options: ['Incorrect', 'Correct'],
+    answer: 0,
     explanation: 'It\'s Frappuccino'
   },
 
   {
     question: 'Espresso',
-    answer: 'Correct',
+    options: ['Incorrect', 'Correct'],
+    answer: 1,
     explanation: null
   },
 
   {
     question: 'Ristretto',
-    answer: 'Correct',
+    options: ['Incorrect', 'Correct'],
+    answer: 1,
     explanation: null
   },
 
   {
     question: 'Caffiene',
-    answer: 'Incorrect',
+    options: ['Incorrect', 'Correct'],
+    answer: 0,
     explanation: 'It\'s Caffeine'
   },
 
   {
     question: 'Caffé au Laite',
-    answer: 'Incorrect',
+    options: ['Incorrect', 'Correct'],
+    answer: 0,
     explanation: 'It\'s Caffé au Lait'
   },
 
   {
     question: 'Robusta',
-    answer: 'Correct',
+    options: ['Incorrect', 'Correct'],
+    answer: 1,
     explanation: null
   },
 
   {
     question: 'Kopi Lawak',
-    answer: 'Incorrect',
+    options: ['Incorrect', 'Correct'],
+    answer: 0,
     explanation: 'It\'s Kopi Luwak'
   }
 ];
 
-function getRandomSpelling() {
-  return spellingQuiz[Math.floor(Math.random() * spellingQuiz.length)];
-}
-
-export {
-  getRandomSpelling
+export default {
+  spellingQuiz
 }
