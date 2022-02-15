@@ -19,7 +19,8 @@ const spellingQuiz = [
 
   {
     question: 'Frappacinno',
-    answer: 'Incorrect'
+    answer: 'Incorrect',
+    explanation: 'It\'s Frappuccino'
   },
 
   {
@@ -36,13 +37,33 @@ const spellingQuiz = [
 
   {
     question: 'Caffiene',
-    answer: 'Incorrect'
+    answer: 'Incorrect',
+    explanation: 'It\'s Caffeine'
   },
 
   {
     question: 'Caffé au Laite',
-    answer: 'Incorrect'
+    answer: 'Incorrect',
+    explanation: 'It\'s Caffé au Lait'
+  },
+
+  {
+    question: 'Robusta',
+    answer: 'Correct',
+    explanation: null
+  },
+
+  {
+    question: 'Kopi Lawak',
+    answer: 'Incorrect',
+    explanation: 'It\'s Kopi Luwak'
   }
+];
 
-]
+function getRandomSpelling() {
+  return spellingQuiz[Math.floor(Math.random() * spellingQuiz.length)];
+}
 
+export {
+  getRandomSpelling
+}

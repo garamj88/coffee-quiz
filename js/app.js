@@ -9,7 +9,7 @@ const loverqz = document.getElementById("lover-quiz");
 const xprtqz = document.getElementById("expert-quiz");
 const snobqz = document.getElementById("snob-quiz");
 
-const 
+
 
 // Consts & Variables
 
@@ -17,6 +17,10 @@ let score = 0;
 
 const passScore = 7;
 const failScore = 4;
+
+import { getRandomSpelling } from "../data/quiz.js";
+
+console.log(getRandomSpelling);
 
 // You don't know much about coffee, but you like it!
 // You're a true coffee lover!
