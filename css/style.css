@@ -10,3 +10,7 @@ body {
 #header {
   text-align: center;
 }
+
+#quiz {
+  justify-self: center;
+}
