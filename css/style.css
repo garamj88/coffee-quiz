@@ -1,7 +1,29 @@
+html {
+  box-sizing: border-box
+}
+
+*, /* All elements*/
+*::before, /* All ::before pseudo-elements */
+*::after { /* All ::after pseudo-elements */
+  /* height & width will now include border & padding by default
+     but can be over-ridden as needed */
+  box-sizing: inherit;
+}
+
+/* resets font size to be 62.5% of the user preference - 
+     in most browser configurations this will be 10px */
+:root {
+  /* most users will have a default font size of 16px */
+  /* this scales that font size to 10px to make it easier for us to work with */
+  /* 20px * 62.5% = 12.5 px */
+  font-size: 62.5%
+}
+
 body {
   background-color: white;
   font-family: 'Maven Pro', sans-serif;
   margin: 0;
+  font-size: 2.4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -12,4 +34,10 @@ body {
 #header {
   text-align: center;
   padding-bottom: 3%;
+}
+
+.btn-main {
+  width: 60%;
+  padding: 3%;
+  font-size: 0.7em;
 }

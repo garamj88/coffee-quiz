@@ -1,38 +1,42 @@
 // Cached ele refs
 
   // buttons
-const spellbtn = document.getElementById("spelling-btn");
-const loverbtn = document.getElementById("lover-btn");
-const xprtbtn = document.getElementById("expert-btn");
-const snobbtn = document.getElementById("snob-btn");
+
+const muteBtn = document.getElementById("mute")
+const spellBtn = document.getElementById("spelling-btn");
+const loverBtn = document.getElementById("lover-btn");
+const xprtBtn = document.getElementById("expert-btn");
+const snobBtn = document.getElementById("snob-btn");
 
   // divs
 const header = document.getElementById("header");
 const catBtns = document.getElementById("category-btns");
-const answrCont = document.getElementById("answer-container")
+const quizCont = document.getElementById("quiz-container");
 
 // Consts & Variables
 
+let question;
 let score = 0;
-
 const passScore = 7;
 const failScore = 4;
 
 import spellingQuiz from '/data/quiz.js';
 
-// You don't know much about coffee, but you like it!
-// You're a true coffee lover!
-// You know basics about coffee but you're not an expert. That's enough!
-// You know your stuff, you're an expert!
-// Be proud to admit you're a coffee snob! 
-
-
 // Event Listeners
 
-spellbtn.addEventListener('click', startSpell);
-loverbtn.addEventListener('click', startLover);
-xprtbtn.addEventListener('click', startExpert);
-snobbtn.addEventListener('click', startSnob);
+//muteBtn.addEventListener('click', soundMute);
+spellBtn.addEventListener('click', startSpell);
+
+// loverBtn.addEventListener('click', startLover);
+  // You don't know much about coffee, but you like it!
+  // You're a true coffee lover!
+
+// xprtBtn.addEventListener('click', startExpert);
+  // You know basics about coffee but you're not an expert. That's enough!
+  // You know your stuff, you're an expert!
+
+// snobBtn.addEventListener('click', startSnob);
+  // Be proud to admit you're a coffee snob!
 
 
 // MAIN PAGE
@@ -42,14 +46,23 @@ snobbtn.addEventListener('click', startSnob);
 
 // QUIZ PAGES
 
+function startSpell() {
+  
+}
+
+
+
+
+
+
+
+
+
 // Create buttons & card containers and add cached ele refs
 // Card containers: question, card after clicking answer, result
 // Buttons: Each answer, next, go back to main
 
-function startSpell() {
-  header.style.display = 'none';
-  catBtns.style.display = 'none';
-}
+
 
 // // Pick a question in a random order from the questions array
 //   // present the options in a random order
@@ -71,3 +84,7 @@ function startSpell() {
   // else if 4 < score < 10, render the result container with another message and go back to main button
   // else, render the result container with the other message and go back to main button
   // Add a 45 sec timer for each question for the lover? & expert? category
+
+
+
+
