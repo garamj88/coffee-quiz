@@ -3,7 +3,7 @@
 // And for Correct (Yes) / Incorrect (No) questions, true = 1, false = 0
 
 
-const spellingQuiz = [
+let spellingQuiz = [
   {
     question: 'Cappuccino',
     options: ['Incorrect', 'Correct'],
