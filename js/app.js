@@ -41,7 +41,7 @@ const failScore = 4;
 //muteBtn.addEventListener('click', soundMute);
 spellBtn.addEventListener('click', () => {
   init()
-  renderQuestion()
+  //getTwoOptQz()
 });
 
 // loverBtn.addEventListener('click', startLover);
@@ -52,7 +52,9 @@ spellBtn.addEventListener('click', () => {
   // You know basics about coffee but you're not an expert. That's enough!
   // You know your stuff, you're an expert!
 
-// snobBtn.addEventListener('click', startSnob);
+// snobBtn.addEventListener('click', () => {
+
+// });
   // Be proud to admit you're a coffee snob!
 
 // nextBtn.addEventListener('click', getQuestion);
@@ -63,7 +65,7 @@ spellBtn.addEventListener('click', () => {
 // Change to 'Sound On' once clicked
 
 
-function init() {
+init = () => {
   header.style.display = 'none';
   spellBtn.style.display = 'none';
   loverBtn.style.display = 'none';
@@ -73,7 +75,7 @@ function init() {
   quizCont.style.display = 'block';
 };
 
-function renderQuestion() {
+renderQuestion = () => {
   let questionSet = spellingQuiz[idx];
   console.log(question)
 }
