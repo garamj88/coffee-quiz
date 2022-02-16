@@ -56,15 +56,21 @@ spellBtn.addEventListener('click', startSpell);
 // snobBtn.addEventListener('click', startSnob);
   // Be proud to admit you're a coffee snob!
 
-nextBtn.addEventListener('click', getQuestion);
+// nextBtn.addEventListener('click', getQuestion);
 toMainBtn.addEventListener('click', restoreMain);
 
 // MAIN PAGE
 // Play a background sound by default, add a button to mute
 // Change to 'Sound On' once clicked
 
+function getQuestion() {
+  let question = spellingQuiz[idx];
+  console.log(question)
+}
+
 function startSpell() {
   init();
+  getQuestion(spellingQuiz);
 }
 
 function init() {
@@ -75,24 +81,22 @@ function init() {
   snobBtn.style.display = 'none';
   // mainBtns.style.display = 'none';
   quizCont.style.display = 'block';
-  getQuestion()
 };
 
-function getQuestion() {
 
-}
+// Check answer and get a win
 
-function getResult() {
-
-  // Check answer and get a win
-
-// 1) if player chose the correct answer, store 1 to a score variable
+function getScore() {
+  // 1) if player chose the correct answer, store 1 to a score variable
   // (Lover/Snob quiz will not check if this correct or not, storing 0 for false and 1 for true upon selection)
 
 // 2) let the player know if they chose an correct / incorrect answer and render a card container with the followings:
   // correct/incorrect message
   // corresponding explanation
   // pop the next button to the container
+}
+
+function getResult() {
 
 // 3) When iteration for the questions is over, check the score and render the result card container
   // if score = 10, render the result container with a message and go back to main button
@@ -102,8 +106,6 @@ function getResult() {
 
 }
 
-
-
 function restoreMain() {
   header.style.display = 'block';
   spellBtn.style.display = 'block';
@@ -111,9 +113,3 @@ function restoreMain() {
   xprtBtn.style.display = 'block';
   snobBtn.style.display = 'block';
 }
-
-
-
-
-
-
