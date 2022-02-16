@@ -72,9 +72,6 @@ let spellingQuiz = [
     options: ['Incorrect', 'Correct'],
     answer: 0,
     explanation: 'It\'s Kopi Luwak'
-  }
+  },
 ];
 
-export default {
-  spellingQuiz
-}
