@@ -41,7 +41,7 @@ const failScore = 4;
 //muteBtn.addEventListener('click', soundMute);
 spellBtn.addEventListener('click', () => {
   init()
-  //getTwoOptQz()
+  //getTwoOptQz(spellingQuiz)
 });
 
 // loverBtn.addEventListener('click', startLover);
@@ -75,9 +75,9 @@ init = () => {
   quizCont.style.display = 'block';
 };
 
-renderQuestion = () => {
-  let questionSet = spellingQuiz[idx];
-  console.log(question)
+getTwoOptQz = () => {
+  let quiz = spellingQuiz[idx];
+  console.log(quiz)
 }
 
 

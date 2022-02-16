@@ -41,12 +41,12 @@ body {
   padding: 3%;
   font-size: 0.7em;
   border-radius: 10px;
-  border: .5px solid darkgray;
+  border: .5px solid #9999999f;
   color: #464646;
   background-color: white;
 }
 
 .btn-main:hover {
-  background-color: darkgray;
-  color: whitesmoke
+  background-color: #9999999f;
+  color: white;
 }
