@@ -14,20 +14,34 @@
 </head>
 
 <body>
-  <button id="mute">Sound Off</button>
+  <nav><button id="mute">Sound Off</button></nav>
+  
   <div id="header">
     <h1>COFFEE TRIVIA</h1>
     <h4>How Much Coffee Knowledge Do You Actually Have?</h4>
   </div>
 
   <div id="category-btns"></div>
-    <button class="btn-main" id="spelling-btn" type="button">Spelling Quiz</button>
-    <button class="btn-main" id="lover-btn" type="button">Pass this Quiz and You're a Coffee Lover!</button>
-    <button class="btn-main" id="expert-btn" type="button">Pass this Quiz and You're a Coffee Expert!</button>
-    <button class="btn-main" id="snob-btn" type="button">Are you a Coffee Lover or a Coffee Snob...?</button>
+    <button class="btn-main" id="spelling-btn">Spelling Quiz</button>
+    <button class="btn-main" id="lover-btn">Pass this Quiz and You're a Coffee Lover!</button>
+    <button class="btn-main" id="expert-btn">Pass this Quiz and You're a Coffee Expert!</button>
+    <button class="btn-main" id="snob-btn">Are you a Coffee Lover or a Coffee Snob...?</button>
   </div>
 
-  <div id="quiz-container"></div>
+  <div id="quiz-container" style="display: none">
+    <h2 id="quiz-question"></h2>
+    <div id="options">
+      <button id="choice0"></button>
+      <button id="choice1"></button>
+      <button id="choice2"></button>
+      <button id="choice3"></button>
+    </div>
+  </div>
+
+  <div id="correct-answer" style="display: none">
+    <!-- Show answer and explanation -->
+  </div>
+  </div>
 </body>
 
 </html>
@@ -36,8 +50,8 @@
 
 
 
-  <!-- TO ADD TO JS WHEN RENDERED
-    <section id="quiz" style="display: none">
+<!-- TO ADD TO JS WHEN RENDERED
+    <div id="quiz" style="display: none">
     <div class="card" style="width: 45rem">
       <img src="..." class="card-img-top" alt="...">
       <div class="card-body">
@@ -55,4 +69,4 @@
           </div>
         </div>
       </div>
-  </section> -->
+  </div> -->

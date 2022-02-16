@@ -7,25 +7,53 @@ const spellBtn = document.getElementById("spelling-btn");
 const loverBtn = document.getElementById("lover-btn");
 const xprtBtn = document.getElementById("expert-btn");
 const snobBtn = document.getElementById("snob-btn");
+// const mainBtns = document.querySelectorAll(".btn-main");
 
   // divs
 const header = document.getElementById("header");
 const catBtns = document.getElementById("category-btns");
-const quizCont = document.getElementById("quiz-container");
+
 
 // Consts & Variables
 
-let question;
-let score = 0;
+let questionSet, idx, score;
+let quizCont = document.getElementById("quiz-container");
+
 const passScore = 7;
 const failScore = 4;
+
 
 import spellingQuiz from '/data/quiz.js';
 
 // Event Listeners
 
+
+
 //muteBtn.addEventListener('click', soundMute);
 spellBtn.addEventListener('click', startSpell);
+
+function init() {
+  header.style.display = "none";
+  spellBtn.style.display = "none";
+  loverBtn.style.display = "none";
+  xprtBtn.style.display = "none";
+  snobBtn.style.display = "none";
+  // mainBtns.style.display = "none";
+  getQuestion();
+};
+
+// function getQuestion() {
+//   let idx = 0;
+//   let question = questionSet[idx]
+
+// }
+
+function startSpell() {
+  init();
+  let questionSet = spellingQuiz;
+  getQuestion(questionSet);
+}
+
 
 // loverBtn.addEventListener('click', startLover);
   // You don't know much about coffee, but you like it!
@@ -45,17 +73,6 @@ spellBtn.addEventListener('click', startSpell);
 
 
 // QUIZ PAGES
-
-function startSpell() {
-  
-}
-
-
-
-
-
-
-
 
 
 // Create buttons & card containers and add cached ele refs
