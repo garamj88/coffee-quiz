@@ -31,6 +31,13 @@ body {
   min-height: 100vh;
 }
 
+.opt-btn {
+  padding: 10px;
+  border: 1px solid gray;
+  border-radius: 15px;
+  margin-top: 10px;
+}
+
 #mute {
   position: absolute;
   top: 30px;
@@ -63,6 +70,10 @@ body {
   color: white;
 }
 
+
+#options-btns {
+  gap: 1vmin;
+}
 
 
 /* color theme to be mocha */

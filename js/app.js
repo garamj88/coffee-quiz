@@ -6,7 +6,7 @@ const spellBtn = document.getElementById("spelling-btn");
 const loverBtn = document.getElementById("lover-btn");
 const xprtBtn = document.getElementById("expert-btn");
 const snobBtn = document.getElementById("snob-btn");
-// const mainBtns = document.querySelectorAll(".btn-main");
+// const mainBtns = document.getElementsByClassName("btn-main");
 const nextBtn = document.getElementById("next");
 const toMainBtn = document.getElementById("to-main");
 const opt0 = document.getElementById("option0");
@@ -17,21 +17,25 @@ const opt3 = document.getElementById("option3");
 // divs / placeholders
 
 const catBtns = document.getElementById("category-btns");
-const optBtns = document.getElementById("options-btns");
+// const optBtns = Array.from(document.getElementsByClassName("opt-btn"));
+// console.log(optBtns)
+
 const header = document.getElementById("header");
 const quizQstn = document.getElementById("question");
 const qImg = document.getElementById('question-image')
 const quizCont = document.getElementById("quiz-container");
 const ansCont = document.getElementById("answer-container");
+const nswr = document.getElementById("answer")
 const xpln = document.getElementById("explain");
 
 
 // Consts & Variables
 
 let idx = 0;
-let score = 0;
+let score;
 let quiz;
 
+const btnsArr = [opt0, opt1, opt2, opt3];
 const passScore = 7;
 const failScore = 4;
 
@@ -42,7 +46,6 @@ const failScore = 4;
 // Event Listeners
 
 // nextBtn.addEventListener('click', getQuestion);
-// toMainBtn.addEventListener('click', restoreMain);
 // muteBtn.addEventListener('click', soundMute);
 
 // MAIN PAGE
@@ -52,8 +55,11 @@ const failScore = 4;
 
 spellBtn.addEventListener('click', () => {
   init()
+  score = 0;
   quiz = spellingQuiz.sort(() => Math.random() - 0.5);
   renderQues();
+  // getAnswer();
+  // getResult();
 });
 
 
@@ -69,7 +75,6 @@ spellBtn.addEventListener('click', () => {
 
 // });
 // Be proud to admit you're a coffee snob!
-
 
 
 init = () => {
@@ -94,8 +99,8 @@ renderQues = () => {
     quizQstn.textContent = quiz[idx].qu;
     opt0.textContent = quiz[idx].op[0];
     opt1.textContent = quiz[idx].op[1];
-    opt2.style.display = 'none'; // remove?
-    opt3.style.display = 'none'; // remove?
+    opt2.remove(); //style.display = 'none'; // remove?
+    opt3.remove(); //style.display = 'none'; // remove?
   };
 
   if (quiz[idx].qim) {
@@ -105,19 +110,37 @@ renderQues = () => {
   }
 }
 
-getAnswer = () => {
-  optBtns.addEventListener('click',(evt) => {
-    console.log(evt.target.textContent === quiz[idx].an);
-  })
 
-    // 1) if player chose the correct answer, store 1 to a score variable
-  // (Lover/Snob quiz will not check if this correct or not, storing 0 for false and 1 for true upon selection)
+let opt0Clk = () => getAnswer(0);
+let opt1Clk = () => getAnswer(1);
+let opt2Clk = () => getAnswer(2);
+let opt3Clk = () => getAnswer(3);
 
-  // 2) let the player know if they chose an correct / incorrect answer and render a card container with the followings:
-  // correct/incorrect message
-  // corresponding explanation
-  // pop the next button to the container
-}
+opt0.addEventListener('click', opt0Clk);
+opt1.addEventListener('click', opt1Clk);
+opt2.addEventListener('click', opt2Clk);
+opt3.addEventListener('click', opt3Clk);
+
+
+getAnswer = (i) => {
+  ansCont.style.display = 'block';
+
+  if (quiz[idx].an === quiz[idx].op[i]) {
+    nswr.textContent = `Well D☕️ne!`;
+    // btn.style.color = 'white';
+    // btn.style.backgroundColor = 'green';
+    // score++;
+  } else {
+    // btn.style.color = 'red';
+    // btn.style.backgroundColor = 'white';
+    // quiz[idx].an;
+    // xpln.textContent = quiz[idx].ex;
+  }
+
+};
+
+
+
 
 
 // function getResult() {
@@ -130,12 +153,12 @@ getAnswer = () => {
 
 // }
 
-// restoreMain = () => {
-//   header.style.display = 'block';
-//   spellBtn.style.display = 'block';
-//   loverBtn.style.display = 'block';
-//   xprtBtn.style.display = 'block';
-//   snobBtn.style.display = 'block';
-//   quizCont.style.display = 'none';
-//   ansCont.style.display = 'none';
-// }
+toMainBtn.addEventListener('click', () => {
+  header.style.display = 'block';
+  spellBtn.style.display = 'block';
+  loverBtn.style.display = 'block';
+  xprtBtn.style.display = 'block';
+  snobBtn.style.display = 'block';
+  quizCont.style.display = 'none';
+  ansCont.style.display = 'none';
+});

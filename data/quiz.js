@@ -73,7 +73,7 @@ let spellingQuiz = [
 
   {
     qu: 'Kopi Lawak',
-    op: ['Incorrect', 'Correct'],
+    op: ['Correct', 'Incorrect'],
     an: 'Incorrect',
     ex: 'It\'s Kopi Luwak'
   }
