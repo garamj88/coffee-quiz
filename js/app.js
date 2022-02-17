@@ -43,7 +43,7 @@ const failScore = 4;
 spellBtn.addEventListener('click', () => {
   init()
   quiz = spellingQuiz.sort(() => Math.random() - 0.5);
-  renderTwoOpt();
+  renderQues();
 });
 
 
@@ -78,12 +78,26 @@ init = () => {
   quizCont.style.display = 'block';
 };
 
-renderTwoOpt = () => {
 
+renderQues = () => {
+  if(quiz[idx].op.length === 2) {
+    quizQstn.textContent = quiz[idx].qu;
+    opt0.textContent = quiz[idx].op[0];
+    opt1.textContent = quiz[idx].op[1];
+  } else {
+    opt2.style.display = 'block';
+    opt3.style.display = 'block';
+    quizQstn.textContent = quiz[idx].qu;
+    op = quiz[idx].op.sort(() => Math.random() - 0.5);
+    opt0.textContent = quiz[idx].op[0];
+    opt1.textContent = quiz[idx].op[1];
+    opt2.textContent = quiz[idx].op[2];
+    opt3.textContent = quiz[idx].op[3];
+  }
 }
 
-renderFourOpt = () => {
-}
+// renderFourOpt = () => {
+// }
 
 
 // // Check answer and get a win

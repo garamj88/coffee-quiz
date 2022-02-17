@@ -9,63 +9,63 @@
 let spellingQuiz = [
   {
     qu: 'Cappuccino',
-    op: ['Incorrect', 'Correct'],
+    op: ['Correct', 'Incorrect'],
     an: 'Correct',
     ex: null
   },
 
   {
     qu: 'Arabicia',
-    op: ['Incorrect', 'Correct'],
+    op: ['Correct', 'Incorrect'],
     an: 'Incorrect',
     ex: 'It\'s Arabica'
   },
 
   {
     qu: 'Macchiato',
-    op: ['Incorrect', 'Correct'],
+    op: ['Correct', 'Incorrect'],
     an: 'Correct',
     ex: null
   },
 
   {
     qu: 'Frappacinno',
-    op: ['Incorrect', 'Correct'],
+    op: ['Correct', 'Incorrect'],
     an: 'Incorrect',
     ex: 'It\'s Frappuccino'
   },
 
   {
     qu: 'Espresso',
-    op: ['Incorrect', 'Correct'],
+    op: ['Correct', 'Incorrect'],
     an: 'Correct',
     ex: null
   },
 
   {
     qu: 'Ristretto',
-    op: ['Incorrect', 'Correct'],
+    op: ['Correct', 'Incorrect'],
     an: 'Correct',
     ex: null
   },
 
   {
     qu: 'Caffiene',
-    op: ['Incorrect', 'Correct'],
+    op: ['Correct', 'Incorrect'],
     an: 'Incorrect',
     ex: 'It\'s Caffeine'
   },
 
   {
     qu: 'Caffé au Laite',
-    op: ['Incorrect', 'Correct'],
+    op: ['Correct', 'Incorrect'],
     an: 'Incorrect',
     ex: 'It\'s Caffé au Lait'
   },
 
   {
     qu: 'Robusta',
-    op: ['Incorrect', 'Correct'],
+    op: ['Correct', 'Incorrect'],
     an: 'Correct',
     ex: null
   },
@@ -77,6 +77,9 @@ let spellingQuiz = [
     ex: 'It\'s Kopi Luwak'
   }
 ];
+
+// shflOps = spellingQuiz[0].op.sort(() => Math.random() - 0.5);
+// console.log(shflOps[0])
 
 // const SnobQuiz = [
 //   {
