@@ -82,23 +82,25 @@ init = () => {
 
 
 renderQues = () => {
-  if(quiz[idx].op.length === 2) {
-    quizQstn.textContent = quiz[idx].qu;
-    opt0.textContent = quiz[idx].op[0];
-    opt1.textContent = quiz[idx].op[1];
-  } else {
-    opt2.style.display = 'block';
-    opt3.style.display = 'block';
+  if (quiz[idx].op.length === 4) {
     quizQstn.textContent = quiz[idx].qu;
     op = quiz[idx].op.sort(() => Math.random() - 0.5);
     opt0.textContent = quiz[idx].op[0];
     opt1.textContent = quiz[idx].op[1];
     opt2.textContent = quiz[idx].op[2];
     opt3.textContent = quiz[idx].op[3];
-  }
+  } else {
+    quizQstn.textContent = quiz[idx].qu;
+    opt0.textContent = quiz[idx].op[0];
+    opt1.textContent = quiz[idx].op[1];
+    opt2.style.display = 'none';
+    opt3.style.display = 'none';
+  };
 
-  if(quiz[idx].qim !== null) {
-    qImg.setAttribute("src", "quiz[idx].qim")
+  if (quiz[idx].qim) {
+    qImg.setAttribute('src', quiz[idx].qim)
+  } else {
+    qImg.style.display = 'none';
   }
 }
 
@@ -108,7 +110,7 @@ function getScore() {
   // 1) if player chose the correct answer, store 1 to a score variable
   // (Lover/Snob quiz will not check if this correct or not, storing 0 for false and 1 for true upon selection)
 
-// 2) let the player know if they chose an correct / incorrect answer and render a card container with the followings:
+  // 2) let the player know if they chose an correct / incorrect answer and render a card container with the followings:
   // correct/incorrect message
   // corresponding explanation
   // pop the next button to the container

@@ -12,7 +12,7 @@ let spellingQuiz = [
     op: ['Correct', 'Incorrect'],
     an: 'Correct',
     ex: null,
-    qim: 'assets/img/cappuccino.jpg'
+    qim: 'https://imgur.com/ehXyq8q'
   },
 
   {
