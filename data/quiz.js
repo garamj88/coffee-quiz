@@ -3,83 +3,337 @@
 // And for Correct (Yes) / Incorrect (No) questions, true = 'Correct', false = 'Incorrect'
 
 
-const spellingQuiz = [
+// property name
+// question: qu, op: op, answer: an, explanation: ex, img for question: qim, img for result: rim
+
+let spellingQuiz = [
   {
-    question: 'Cappuccino',
-    options: ['Incorrect', 'Correct'],
-    answer: 'Correct',
-    explanation: null
+    qu: 'Cappuccino',
+    op: ['Incorrect', 'Correct'],
+    an: 'Correct',
+    ex: null
   },
 
   {
-    question: 'Arabicia',
-    options: ['Incorrect', 'Correct'],
-    answer: 'Incorrect',
-    explanation: 'It\'s Arabica'
+    qu: 'Arabicia',
+    op: ['Incorrect', 'Correct'],
+    an: 'Incorrect',
+    ex: 'It\'s Arabica'
   },
 
   {
-    question: 'Macchiato',
-    options: ['Incorrect', 'Correct'],
-    answer: 'Correct',
-    explanation: null
+    qu: 'Macchiato',
+    op: ['Incorrect', 'Correct'],
+    an: 'Correct',
+    ex: null
   },
 
   {
-    question: 'Frappacinno',
-    options: ['Incorrect', 'Correct'],
-    answer: 'Incorrect',
-    explanation: 'It\'s Frappuccino'
+    qu: 'Frappacinno',
+    op: ['Incorrect', 'Correct'],
+    an: 'Incorrect',
+    ex: 'It\'s Frappuccino'
   },
 
   {
-    question: 'Espresso',
-    options: ['Incorrect', 'Correct'],
-    answer: 'Correct',
-    explanation: null
+    qu: 'Espresso',
+    op: ['Incorrect', 'Correct'],
+    an: 'Correct',
+    ex: null
   },
 
   {
-    question: 'Ristretto',
-    options: ['Incorrect', 'Correct'],
-    answer: 'Correct',
-    explanation: null
+    qu: 'Ristretto',
+    op: ['Incorrect', 'Correct'],
+    an: 'Correct',
+    ex: null
   },
 
   {
-    question: 'Caffiene',
-    options: ['Incorrect', 'Correct'],
-    answer: 'Incorrect',
-    explanation: 'It\'s Caffeine'
+    qu: 'Caffiene',
+    op: ['Incorrect', 'Correct'],
+    an: 'Incorrect',
+    ex: 'It\'s Caffeine'
   },
 
   {
-    question: 'Caffé au Laite',
-    options: ['Incorrect', 'Correct'],
-    answer: 'Incorrect',
-    explanation: 'It\'s Caffé au Lait'
+    qu: 'Caffé au Laite',
+    op: ['Incorrect', 'Correct'],
+    an: 'Incorrect',
+    ex: 'It\'s Caffé au Lait'
   },
 
   {
-    question: 'Robusta',
-    options: ['Incorrect', 'Correct'],
-    answer: 'Correct',
-    explanation: null
+    qu: 'Robusta',
+    op: ['Incorrect', 'Correct'],
+    an: 'Correct',
+    ex: null
   },
 
   {
-    question: 'Kopi Lawak',
-    options: ['Incorrect', 'Correct'],
-    answer: 'Incorrect',
-    explanation: 'It\'s Kopi Luwak'
-  },
+    qu: 'Kopi Lawak',
+    op: ['Incorrect', 'Correct'],
+    an: 'Incorrect',
+    ex: 'It\'s Kopi Luwak'
+  }
 ];
 
-const loverQuiz = [
-  {
-    question: 'Kopi Lawak',
-    options: ['Incorrect', 'Correct'],
-    answer: 'Incorrect',
-    explanation: 'It\'s Kopi Luwak'
-  },
-]
+// const SnobQuiz = [
+//   {
+//     qu: 'Cappuccino',
+//     op: ['Incorrect', 'Correct'],
+//     an: 'Correct',
+//     ex: null
+//   },
+
+//   {
+//     qu: 'Arabicia',
+//     op: ['Incorrect', 'Correct'],
+//     an: 'Incorrect',
+//     ex: 'It\'s Arabica'
+//   },
+
+//   {
+//     qu: 'Macchiato',
+//     op: ['Incorrect', 'Correct'],
+//     an: 'Correct',
+//     ex: null
+//   },
+
+//   {
+//     qu: 'Frappacinno',
+//     op: ['Incorrect', 'Correct'],
+//     an: 'Incorrect',
+//     ex: 'It\'s Frappuccino'
+//   },
+
+//   {
+//     qu: 'Espresso',
+//     op: ['Incorrect', 'Correct'],
+//     an: 'Correct',
+//     ex: null
+//   },
+
+//   {
+//     qu: 'Ristretto',
+//     op: ['Incorrect', 'Correct'],
+//     an: 'Correct',
+//     ex: null
+//   },
+
+//   {
+//     qu: 'Caffiene',
+//     op: ['Incorrect', 'Correct'],
+//     an: 'Incorrect',
+//     ex: 'It\'s Caffeine'
+//   },
+
+//   {
+//     qu: 'Caffé au Laite',
+//     op: ['Incorrect', 'Correct'],
+//     an: 'Incorrect',
+//     ex: 'It\'s Caffé au Lait'
+//   },
+
+//   {
+//     qu: 'Robusta',
+//     op: ['Incorrect', 'Correct'],
+//     an: 'Correct',
+//     ex: null
+//   },
+
+//   {
+//     qu: 'Kopi Lawak',
+//     op: ['Incorrect', 'Correct'],
+//     an: 'Incorrect',
+//     ex: 'It\'s Kopi Luwak'
+//   }
+
+// ]
+
+
+// const loverQuiz = [
+//   {
+//     qu: 'What is this brewing device called?',
+//     op: ['French Press', 'AeroPress', 'Moka Pot', 'Chemex'],
+//     an: 'French Press',
+//     ex: 'French presses use a mesh plunger to push coffee grounds to the bottom of the pot.',
+//     qim: 'add french press image',
+//     rim: null
+//   },
+
+//   {
+//     qu: ,
+//     op: ,
+//     an: ,
+//     ex: ,
+//     qim: ,
+//     rim: 
+//   },
+
+//   {
+//     qu: ,
+//     op: ,
+//     an: ,
+//     ex: ,
+//     qim: ,
+//     rim: 
+//   },
+
+//   {
+//     qu: ,
+//     op: ,
+//     an: ,
+//     ex: ,
+//     qim: ,
+//     rim: 
+//   },
+
+//   {
+//     qu: ,
+//     op: ,
+//     an: ,
+//     ex: ,
+//     qim: ,
+//     rim: 
+//   },
+
+//   {
+//     qu: ,
+//     op: ,
+//     an: ,
+//     ex: ,
+//     qim: ,
+//     rim: 
+//   },
+
+//   {
+//     qu: ,
+//     op: ,
+//     an: ,
+//     ex: ,
+//     qim: ,
+//     rim: 
+//   },
+
+//   {
+//     qu: ,
+//     op: ,
+//     an: ,
+//     ex: ,
+//     qim: ,
+//     rim: 
+//   },
+
+//   {
+//     qu: ,
+//     op: ,
+//     an: ,
+//     ex: ,
+//     qim: ,
+//     rim: 
+//   },
+
+//   {
+//     qu: ,
+//     op: ,
+//     an: ,
+//     ex: ,
+//     qim: ,
+//     rim: 
+//   }
+// ]
+
+// const expertQuiz = [
+//   {
+//     qu: 'According to an Ethiopian origin story, coffee beans were discovered after what animal became energetic after eating the coffee cherries?',
+//     op: ['Goats', 'Elephants', 'Birds', 'Horse'],
+//     an: 'Goats',
+//     ex: 'According to the legend, a goatherd discovered coffee beans after he noticed that his goats became super energetic after eating cherries from a particular tree.',
+//     qim: null,
+//     rim: 'add ancient goatherd pic',
+//   },
+
+//   {
+//     qu: ,
+//     op: ,
+//     an: ,
+//     ex: ,
+//     qim: ,
+//     rim: ,
+//   },
+
+//   {
+//     qu: ,
+//     op: ,
+//     an: ,
+//     ex: ,
+//     qim: ,
+//     rim: ,
+//   },
+
+//   {
+//     qu: ,
+//     op: ,
+//     an: ,
+//     ex: ,
+//     qim: ,
+//     rim: ,
+//   },
+
+//   {
+//     qu: ,
+//     op: ,
+//     an: ,
+//     ex: ,
+//     qim: ,
+//     rim: ,
+//   },
+
+//   {
+//     qu: ,
+//     op: ,
+//     an: ,
+//     ex: ,
+//     qim: ,
+//     rim: ,
+//   },
+
+//   {
+//     qu: ,
+//     op: ,
+//     an: ,
+//     ex: ,
+//     qim: ,
+//     rim: ,
+//   },
+
+//   {
+//     qu: ,
+//     op: ,
+//     an: ,
+//     ex: ,
+//     qim: ,
+//     rim: ,
+//   },
+
+//   {
+//     qu: ,
+//     op: ,
+//     an: ,
+//     ex: ,
+//     qim: ,
+//     rim: ,
+//   },
+
+//   {
+//     qu: ,
+//     op: ,
+//     an: ,
+//     ex: ,
+//     qim: ,
+//     rim: ,
+//   }
+// ]
+
+

@@ -1,6 +1,6 @@
 // Cached ele refs
 
-  // buttons
+// buttons
 
 const muteBtn = document.getElementById("mute")
 const spellBtn = document.getElementById("spelling-btn");
@@ -16,18 +16,19 @@ const opt1 = document.getElementById("option1");
 const opt2 = document.getElementById("option2");
 const opt3 = document.getElementById("option3");
 
-
-  // divs
+// divs / placeholders
 const header = document.getElementById("header");
+const optBtns = document.getElementById("options-btns")
 const catBtns = document.getElementById("category-btns");
 const quizCont = document.getElementById("quiz-container");
+const ansCont = document.getElementById("answer-container");
+const xpln = document.getElementById("explain");
 
 // Consts & Variables
 
-let twoOptQz;
-let fourOptQz;
 let idx = 0;
 let score = 0;
+let quiz;
 
 const passScore = 7;
 const failScore = 4;
@@ -41,21 +42,23 @@ const failScore = 4;
 //muteBtn.addEventListener('click', soundMute);
 spellBtn.addEventListener('click', () => {
   init()
-  //getTwoOptQz(spellingQuiz)
+  quiz = spellingQuiz.sort(() => Math.random() - 0.5);
+  renderTwoOpt();
 });
 
+
 // loverBtn.addEventListener('click', startLover);
-  // You don't know much about coffee, but you like it!
-  // You're a true coffee lover!
+// You don't know much about coffee, but you like it!
+// You're a true coffee lover!
 
 // xprtBtn.addEventListener('click', startExpert);
-  // You know basics about coffee but you're not an expert. That's enough!
-  // You know your stuff, you're an expert!
+// You know basics about coffee but you're not an expert. That's enough!
+// You know your stuff, you're an expert!
 
 // snobBtn.addEventListener('click', () => {
 
 // });
-  // Be proud to admit you're a coffee snob!
+// Be proud to admit you're a coffee snob!
 
 // nextBtn.addEventListener('click', getQuestion);
 // toMainBtn.addEventListener('click', restoreMain);
@@ -75,9 +78,11 @@ init = () => {
   quizCont.style.display = 'block';
 };
 
-getTwoOptQz = () => {
-  let quiz = spellingQuiz[idx];
-  console.log(quiz)
+renderTwoOpt = () => {
+
+}
+
+renderFourOpt = () => {
 }
 
 
@@ -93,6 +98,13 @@ getTwoOptQz = () => {
 //   // pop the next button to the container
 // }
 
+
+optBtns.addEventListener('click', checkAnswer);
+
+// function checkAnswer {
+  // get the text content of the clicked button and check if it matches with the correct answer
+// }
+
 // function getResult() {
 
 // // 3) When iteration for the questions is over, check the score and render the result card container
@@ -103,10 +115,12 @@ getTwoOptQz = () => {
 
 // }
 
-// function restoreMain() {
+// restoreMain = () => {
 //   header.style.display = 'block';
 //   spellBtn.style.display = 'block';
 //   loverBtn.style.display = 'block';
 //   xprtBtn.style.display = 'block';
 //   snobBtn.style.display = 'block';
+//   quizCont.style.display = 'none';
+//   ansCont.style.display = 'none';
 // }
