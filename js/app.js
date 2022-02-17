@@ -17,7 +17,8 @@ const opt3 = document.getElementById("option3");
 // divs / placeholders
 
 const catBtns = document.getElementById("category-btns");
-// const optBtns = Array.from(document.getElementsByClassName("opt-btn"));
+const container = document.getElementById("container")
+const optBtns = document.getElementById("options-btns");
 // console.log(optBtns)
 
 const header = document.getElementById("header");
@@ -32,10 +33,10 @@ const xpln = document.getElementById("explain");
 // Consts & Variables
 
 let idx = 0;
-let score;
+let score = 0;
 let quiz;
+let answered = false;
 
-const btnsArr = [opt0, opt1, opt2, opt3];
 const passScore = 7;
 const failScore = 4;
 
@@ -45,7 +46,7 @@ const failScore = 4;
 
 // Event Listeners
 
-// nextBtn.addEventListener('click', getQuestion);
+nextBtn.addEventListener('click', handleNext);
 // muteBtn.addEventListener('click', soundMute);
 
 // MAIN PAGE
@@ -53,15 +54,23 @@ const failScore = 4;
 // Change to 'Sound On' once clicked
 
 
+init = () => {
+  header.style.display = 'none';
+  spellBtn.style.display = 'none';
+  loverBtn.style.display = 'none';
+  xprtBtn.style.display = 'none';
+  snobBtn.style.display = 'none';
+  // mainBtns.style.display = 'none';
+  quizCont.style.display = 'block';
+};
+
 spellBtn.addEventListener('click', () => {
   init()
   score = 0;
   quiz = spellingQuiz.sort(() => Math.random() - 0.5);
   renderQues();
-  // getAnswer();
-  // getResult();
+  //getResult();
 });
-
 
 // loverBtn.addEventListener('click', startLover);
 // You don't know much about coffee, but you like it!
@@ -76,71 +85,111 @@ spellBtn.addEventListener('click', () => {
 // });
 // Be proud to admit you're a coffee snob!
 
-
-init = () => {
-  header.style.display = 'none';
-  spellBtn.style.display = 'none';
-  loverBtn.style.display = 'none';
-  xprtBtn.style.display = 'none';
-  snobBtn.style.display = 'none';
-  // mainBtns.style.display = 'none';
-  quizCont.style.display = 'block';
-};
-
 renderQues = () => {
-  if (quiz[idx].op.length === 4) {
-    quizQstn.textContent = quiz[idx].qu;
-    op = quiz[idx].op.sort(() => Math.random() - 0.5);
-    opt0.textContent = quiz[idx].op[0];
-    opt1.textContent = quiz[idx].op[1];
-    opt2.textContent = quiz[idx].op[2];
-    opt3.textContent = quiz[idx].op[3];
-  } else {
-    quizQstn.textContent = quiz[idx].qu;
-    opt0.textContent = quiz[idx].op[0];
-    opt1.textContent = quiz[idx].op[1];
-    opt2.remove(); //style.display = 'none'; // remove?
-    opt3.remove(); //style.display = 'none'; // remove?
-  };
+  const question = document.createElement('h2')
+  question.textContent = quiz[idx].qu
+  quizCont.appendChild(question)
+
+  quiz[idx].op.forEach((o, i) => {
+    const button = document.createElement('button')
+    button.id = o
+    button.classList.add('opt-btn')
+    button.textContent = o
+    button.addEventListener('click', (evt) => getAnswer(evt, o))
+    optBtns.appendChild(button)
+  })
 
   if (quiz[idx].qim) {
-    qImg.setAttribute('src', quiz[idx].qim) //check back for image crash
-  } else {
-    qImg.style.display = 'none';
+    const img = document.createElement('img')
+    img.src = quiz[idx].qim
+    img.id = "question-image"
+    quizCont.appendChild(img)
   }
+  // if (quiz[idx].op.length === 4) {
+  //   quizQstn.textContent = quiz[idx].qu;
+  //   op = quiz[idx].op.sort(() => Math.random() - 0.5);
+  //   opt0.textContent = quiz[idx].op[0];
+  //   opt1.textContent = quiz[idx].op[1];
+  //   opt2.textContent = quiz[idx].op[2];
+  //   opt3.textContent = quiz[idx].op[3];
+  // } else {
+  //   quizQstn.textContent = quiz[idx].qu;
+  //   opt0.textContent = quiz[idx].op[0];
+  //   opt1.textContent = quiz[idx].op[1];
+  //   opt2.remove();
+  //   opt3.remove();
+  // };
+
+  // if (quiz[idx].qim) {
+  //   qImg.setAttribute('src', quiz[idx].qim) //check back for image crash
+  // } else {
+  //   qImg.style.display = 'none';
+  // }
+  // ansCont.style.display ='none';
 }
 
+// opt0.addEventListener('click', () => getAnswer(0));
+// opt1.addEventListener('click', () => getAnswer(1));
+// opt2.addEventListener('click', () => getAnswer(2));
 
-let opt0Clk = () => getAnswer(0);
-let opt1Clk = () => getAnswer(1);
-let opt2Clk = () => getAnswer(2);
-let opt3Clk = () => getAnswer(3);
+// nextBtn.addEventListener('click', () => renderQues())
 
-opt0.addEventListener('click', opt0Clk);
-opt1.addEventListener('click', opt1Clk);
-opt2.addEventListener('click', opt2Clk);
-opt3.addEventListener('click', opt3Clk);
+function handleNext() {
+  if (answered === false) return;
+  answered = false;
+  clearQuestion();
+  idx++;
+  renderQues()
+}
 
+function clearQuestion() {
+  ansCont.style.display = 'none';
+  nswr.textContent = '';
+  xpln.textContent = '';
+  quizCont.innerHTML = '';
+  optBtns.innerHTML = '';
+}
 
-getAnswer = (i) => {
-  ansCont.style.display = 'block';
+getAnswer = (evt, o) => {
+  if (answered === true) return;
 
-  if (quiz[idx].an === quiz[idx].op[i]) {
-    nswr.textContent = `Well D☕️ne!`;
-    // btn.style.color = 'white';
-    // btn.style.backgroundColor = 'green';
-    // score++;
+  answered = true;
+  if (o === quiz[idx].an) {
+    ansCont.style.display = 'block';
+    nswr.textContent = `C☕️rrect!`;
+    xpln.textContent = quiz[idx].ex;
+    score++;
   } else {
-    // btn.style.color = 'red';
-    // btn.style.backgroundColor = 'white';
-    // quiz[idx].an;
-    // xpln.textContent = quiz[idx].ex;
+    ansCont.style.display = 'block';
+    nswr.textContent = `Wrong!`;
+    xpln.textContent = quiz[idx].ex;
   }
-
-};
-
-
-
+  
+  // if (idx < quiz.length - 1) {
+  //   if (quiz[idx].op[i] === quiz[idx].an) {
+  //     ansCont.style.display = 'block';
+  //     nswr.textContent = `C☕️rrect!`;
+  //     xpln.textContent = quiz[idx].ex;
+  //     score++;
+  //     idx++;
+  //   } else {
+  //     ansCont.style.display = 'block';
+  //     nswr.textContent = `Wrong!`;
+  //     xpln.textContent = quiz[idx].ex;
+  //     idx++;
+  //   }
+  // } else {
+  //   if (quiz[idx].op[i] === quiz[idx].an) {
+  //     score++;
+  //     ansCont.style.display = 'block';
+  //     nswr.textContent = `C☕️rrect!`;
+  //   } else {
+  //     ansCont.style.display = 'block';
+  //     quiz[idx].an;
+  //     xpln.textContent = quiz[idx].ex;
+  //   }
+  // };
+}
 
 
 // function getResult() {
