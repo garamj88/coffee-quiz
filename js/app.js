@@ -15,9 +15,9 @@ const opt2 = document.getElementById("option2");
 const opt3 = document.getElementById("option3");
 
 // divs / placeholders
-const optBtns = document.getElementById("options-btns")
-const catBtns = document.getElementById("category-btns");
 
+const catBtns = document.getElementById("category-btns");
+const optBtns = document.getElementById("options-btns");
 const header = document.getElementById("header");
 const quizQstn = document.getElementById("question");
 const qImg = document.getElementById('question-image')
@@ -41,7 +41,15 @@ const failScore = 4;
 
 // Event Listeners
 
-//muteBtn.addEventListener('click', soundMute);
+// nextBtn.addEventListener('click', getQuestion);
+// toMainBtn.addEventListener('click', restoreMain);
+// muteBtn.addEventListener('click', soundMute);
+
+// MAIN PAGE
+// Play a background sound by default, add a button to mute
+// Change to 'Sound On' once clicked
+
+
 spellBtn.addEventListener('click', () => {
   init()
   quiz = spellingQuiz.sort(() => Math.random() - 0.5);
@@ -62,12 +70,6 @@ spellBtn.addEventListener('click', () => {
 // });
 // Be proud to admit you're a coffee snob!
 
-// nextBtn.addEventListener('click', getQuestion);
-// toMainBtn.addEventListener('click', restoreMain);
-
-// MAIN PAGE
-// Play a background sound by default, add a button to mute
-// Change to 'Sound On' once clicked
 
 
 init = () => {
@@ -79,7 +81,6 @@ init = () => {
   // mainBtns.style.display = 'none';
   quizCont.style.display = 'block';
 };
-
 
 renderQues = () => {
   if (quiz[idx].op.length === 4) {
@@ -93,21 +94,23 @@ renderQues = () => {
     quizQstn.textContent = quiz[idx].qu;
     opt0.textContent = quiz[idx].op[0];
     opt1.textContent = quiz[idx].op[1];
-    opt2.style.display = 'none';
-    opt3.style.display = 'none';
+    opt2.style.display = 'none'; // remove?
+    opt3.style.display = 'none'; // remove?
   };
 
   if (quiz[idx].qim) {
-    qImg.setAttribute('src', quiz[idx].qim)
+    qImg.setAttribute('src', quiz[idx].qim) //check back for image crash
   } else {
     qImg.style.display = 'none';
   }
 }
 
-// Check answer and get a win
+getAnswer = () => {
+  optBtns.addEventListener('click',(evt) => {
+    console.log(evt.target.textContent === quiz[idx].an);
+  })
 
-function getScore() {
-  // 1) if player chose the correct answer, store 1 to a score variable
+    // 1) if player chose the correct answer, store 1 to a score variable
   // (Lover/Snob quiz will not check if this correct or not, storing 0 for false and 1 for true upon selection)
 
   // 2) let the player know if they chose an correct / incorrect answer and render a card container with the followings:
@@ -116,12 +119,6 @@ function getScore() {
   // pop the next button to the container
 }
 
-
-optBtns.addEventListener('click', checkAnswer);
-
-// function checkAnswer {
-  // get the text content of the clicked button and check if it matches with the correct answer
-// }
 
 // function getResult() {
 
