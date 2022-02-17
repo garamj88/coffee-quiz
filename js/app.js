@@ -1,14 +1,12 @@
 // Cached ele refs
 
 // buttons
-
 const muteBtn = document.getElementById("mute")
 const spellBtn = document.getElementById("spelling-btn");
 const loverBtn = document.getElementById("lover-btn");
 const xprtBtn = document.getElementById("expert-btn");
 const snobBtn = document.getElementById("snob-btn");
 // const mainBtns = document.querySelectorAll(".btn-main");
-const quizQstn = document.getElementById("question");
 const nextBtn = document.getElementById("next");
 const toMainBtn = document.getElementById("to-main");
 const opt0 = document.getElementById("option0");
@@ -17,12 +15,16 @@ const opt2 = document.getElementById("option2");
 const opt3 = document.getElementById("option3");
 
 // divs / placeholders
-const header = document.getElementById("header");
 const optBtns = document.getElementById("options-btns")
 const catBtns = document.getElementById("category-btns");
+
+const header = document.getElementById("header");
+const quizQstn = document.getElementById("question");
+const qImg = document.getElementById('question-image')
 const quizCont = document.getElementById("quiz-container");
 const ansCont = document.getElementById("answer-container");
 const xpln = document.getElementById("explain");
+
 
 // Consts & Variables
 
@@ -94,23 +96,23 @@ renderQues = () => {
     opt2.textContent = quiz[idx].op[2];
     opt3.textContent = quiz[idx].op[3];
   }
+
+  if(quiz[idx].qim !== null) {
+    qImg.setAttribute("src", "quiz[idx].qim")
+  }
 }
 
-// renderFourOpt = () => {
-// }
+// Check answer and get a win
 
+function getScore() {
+  // 1) if player chose the correct answer, store 1 to a score variable
+  // (Lover/Snob quiz will not check if this correct or not, storing 0 for false and 1 for true upon selection)
 
-// // Check answer and get a win
-
-// function getScore() {
-//   // 1) if player chose the correct answer, store 1 to a score variable
-//   // (Lover/Snob quiz will not check if this correct or not, storing 0 for false and 1 for true upon selection)
-
-// // 2) let the player know if they chose an correct / incorrect answer and render a card container with the followings:
-//   // correct/incorrect message
-//   // corresponding explanation
-//   // pop the next button to the container
-// }
+// 2) let the player know if they chose an correct / incorrect answer and render a card container with the followings:
+  // correct/incorrect message
+  // corresponding explanation
+  // pop the next button to the container
+}
 
 
 optBtns.addEventListener('click', checkAnswer);

@@ -11,7 +11,8 @@ let spellingQuiz = [
     qu: 'Cappuccino',
     op: ['Correct', 'Incorrect'],
     an: 'Correct',
-    ex: null
+    ex: null,
+    qim: 'assets/img/cappuccino.jpg'
   },
 
   {
@@ -78,8 +79,6 @@ let spellingQuiz = [
   }
 ];
 
-// shflOps = spellingQuiz[0].op.sort(() => Math.random() - 0.5);
-// console.log(shflOps[0])
 
 // const SnobQuiz = [
 //   {
