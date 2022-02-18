@@ -193,6 +193,7 @@ getAnswer = (evt, o) => {
     //nswr.textContent = `Correct!`;
     evt.target.style.backgroundColor = 'green'
     evt.target.style.opacity = 0.5;
+    nswr.textContent = '';
     xpln.textContent = quiz[idx].ex;
     score++;
   } else {
