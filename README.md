@@ -4,10 +4,10 @@
 
 This coffee trivia game will help the user learning fun facts from the history of coffee to brewing methods and finding out if they are just a coffee lover, an expert, or a snob.
 
-1) The spelling quiz for coffee words - does it look right? (Timed quiz!)
-2) Am I a coffee lover - do I know basics? (Timed quiz!)
-3) And an expert - do I have knowledge and skills? (Timed quiz!)
-4) Or even a coffee snob - how many questions do I answer yes to?
+1. The spelling quiz for coffee words - does it look right?
+2. Am I a coffee lover - do I know basics?
+3. And an expert - do I have knowledge and skills?
+4. Or even a coffee snob - how many questions do I answer yes to?
 
 ---
 ## [Play the Game Here](https://garamj88.github.io/coffee-quiz/)
