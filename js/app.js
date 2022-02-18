@@ -39,9 +39,13 @@ const passScore = 7;
 muteBtn.addEventListener('click', () => {
 if (playing) {
   song.pause();
+  song.volume = 0.15;
+  song.loop = true;
   muteBtn.style.backgroundColor = 'white';
 } else {
   song.play();
+  song.volume = 0.15;
+  song.loop = true;
   muteBtn.style.backgroundColor = '#9999999f';
 }
 playing = !playing;
@@ -196,7 +200,7 @@ getAnswer = (evt, o) => {
     //nswr.textContent = `Wrong!`;
     evt.target.style.backgroundColor = '#ff0000'
     evt.target.style.opacity = 0.5;
-    nswr.textContent = `Correct answer is: ${quiz[idx].an}`;
+    nswr.textContent = `Correct answer is '${quiz[idx].an}'`;
     xpln.textContent = quiz[idx].ex;
   }
 }
