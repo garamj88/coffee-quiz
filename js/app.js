@@ -39,13 +39,9 @@ const passScore = 7;
 muteBtn.addEventListener('click', () => {
 if (playing) {
   song.pause();
-  song.volume = 0.15;
-  song.loop = true;
   muteBtn.style.backgroundColor = 'white';
 } else {
   song.play();
-  song.volume = 0.15;
-  song.loop = true;
   muteBtn.style.backgroundColor = '#9999999f';
 }
 playing = !playing;
@@ -150,13 +146,11 @@ function checkEndGame() {
   if (idx > 9 || timeLeft < 0) {
     if (score >= passScore) {
       quizCont.textContent = `Your score is ${score}/10! Congrats, you passed!`
-      clearInterval(timer)
-      return true;
     } else {
       quizCont.textContent = `Your score is ${score}/10... Try again next time`
-      clearInterval(timer)
-      return true;
     }
+    clearInterval(timer)
+    return true;
   } else {
     return false;
   }
@@ -192,16 +186,17 @@ getAnswer = (evt, o) => {
 
   if (o === quiz[idx].an) {
     ansCont.style.display = 'block';
+    //nswr.textContent = `Correct!`;
     evt.target.style.backgroundColor = 'green'
     evt.target.style.opacity = 0.5;
-    nswr.textContent = '';
     xpln.textContent = quiz[idx].ex;
     score++;
   } else {
     ansCont.style.display = 'block';
+    //nswr.textContent = `Wrong!`;
     evt.target.style.backgroundColor = '#ff0000'
     evt.target.style.opacity = 0.5;
-    nswr.textContent = `Correct answer is '${quiz[idx].an}'`;
+    nswr.textContent = `Correct answer is: ${quiz[idx].an}`;
     xpln.textContent = quiz[idx].ex;
   }
 }
