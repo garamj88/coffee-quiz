@@ -150,11 +150,13 @@ function checkEndGame() {
   if (idx > 9 || timeLeft < 0) {
     if (score >= passScore) {
       quizCont.textContent = `Your score is ${score}/10! Congrats, you passed!`
+      clearInterval(timer)
+      return true;
     } else {
       quizCont.textContent = `Your score is ${score}/10... Try again next time`
+      clearInterval(timer)
+      return true;
     }
-    clearInterval(timer)
-    return true;
   } else {
     return false;
   }
@@ -190,7 +192,6 @@ getAnswer = (evt, o) => {
 
   if (o === quiz[idx].an) {
     ansCont.style.display = 'block';
-    //nswr.textContent = `Correct!`;
     evt.target.style.backgroundColor = 'green'
     evt.target.style.opacity = 0.5;
     nswr.textContent = '';
@@ -198,7 +199,6 @@ getAnswer = (evt, o) => {
     score++;
   } else {
     ansCont.style.display = 'block';
-    //nswr.textContent = `Wrong!`;
     evt.target.style.backgroundColor = '#ff0000'
     evt.target.style.opacity = 0.5;
     nswr.textContent = `Correct answer is '${quiz[idx].an}'`;

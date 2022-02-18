@@ -11,7 +11,7 @@ const spellingQuiz = [
     qu: 'Cappuccino',
     op: ['Correct', 'Incorrect'],
     an: 'Correct',
-    ex: 'This is correct',
+    ex: null,
     qim: '../assets/img/cappuccino.jpg'
   },
 
@@ -26,7 +26,7 @@ const spellingQuiz = [
     qu: 'Macchiato',
     op: ['Correct', 'Incorrect'],
     an: 'Correct',
-    ex: 'This is correct'
+    ex: null
   },
 
   {
@@ -40,14 +40,14 @@ const spellingQuiz = [
     qu: 'Espresso',
     op: ['Correct', 'Incorrect'],
     an: 'Correct',
-    ex: 'This is correct'
+    ex: null
   },
 
   {
     qu: 'Ristretto',
     op: ['Correct', 'Incorrect'],
     an: 'Correct',
-    ex: 'This is correct'
+    ex: null
   },
 
   {
@@ -68,7 +68,7 @@ const spellingQuiz = [
     qu: 'Robusta',
     op: ['Correct', 'Incorrect'],
     an: 'Correct',
-    ex: 'This is correct'
+    ex: null
   },
 
   {
