@@ -11,7 +11,7 @@ const spellingQuiz = [
     qu: 'Cappuccino',
     op: ['Correct', 'Incorrect'],
     an: 'Correct',
-    ex: 'This is correct',
+    ex: null,
     qim: '../assets/img/cappuccino.jpg'
   },
 
@@ -33,7 +33,7 @@ const spellingQuiz = [
     qu: 'Cortada',
     op: ['Correct', 'Incorrect'],
     an: 'Incorrect',
-    ex: 'Correct answer is: Frappuccino'
+    ex: 'Correct answer is: Cortado'
   },
 
   {
@@ -133,7 +133,7 @@ const snobQuiz = [
   {
     qu: 'You are strict to wait for 2 weeks from the roasting date.',
     op: ['No', 'Yes'],
-    an: 'No',
+    an: 'Yes',
     ex: null
   },
 
@@ -145,9 +145,9 @@ const snobQuiz = [
   },
 
   {
-    qu: 'You have a favorit water recipe.',
+    qu: 'You have a favorite water recipe.',
     op: ['No', 'Yes'],
-    an: 'No',
+    an: 'Yes',
     ex: null
   }
 ]
@@ -167,7 +167,7 @@ const loverQuiz = [
     qu: '"Robusta" and "Arabica" are both types of what?',
     op: ['Coffee Bean', 'Brewing Technique', 'Roast Method', 'Instant Coffee'],
     an: 'Coffee Bean',
-    ex: null,
+    ex: 'Robusta and Arabica are types of beans',
     qim: null,
     rim: null 
   },
@@ -175,7 +175,7 @@ const loverQuiz = [
   {
     qu: 'Kopi Luwak coffee is some of the most expensive coffee in the world, but what other fact can you tell your customer about it?',
     op: ['It\'s made from poop', 'It\'s banned in US', 'The beans are bright red', 'It\'s not actually coffee at all'],
-    an: 'It\'s made from cat\'s poop',
+    an: 'It\'s made from poop',
     ex: 'Kopi Luwak coffee beans are partially digested and pooped out by a catlike creature called the civet. One cup costs around $80 in the US.',
     qim: null,
     rim: '../assets/img/kopiLuwak.jpg'
@@ -185,16 +185,16 @@ const loverQuiz = [
     qu: 'What is a latte?',
     op: ['A drink made with espresso and steamed milk.', 'A drink made with only espresso.', 'A drink made with espresso and milk foam only.', 'A drink made with espresso and whipped cream only.'],
     an: 'A drink made with espresso and steamed milk.',
-    ex: null,
+    ex: 'Latte is made with espresso and steamed milk.',
     qim: null,
     rim: null,
   },
 
   {
     qu: 'What is the difference between a cappuccino and a latte?',
-    op: ['lattes contain more milk', 'lattes contain less milk', 'There is no difference', 'lattes contain more milk foam'],
-    an: 'lattes contain more milk',
-    ex: null,
+    op: ['Lattes contain more milk', 'Lattes contain less milk', 'There is no difference', 'Lattes contain more milk foam'],
+    an: 'Lattes contain more milk',
+    ex: 'Lattes contain more milk than cappuccinos that contain milk foam and less milk.',
     qim: null,
     rim: null,
   },
@@ -203,7 +203,7 @@ const loverQuiz = [
     qu: 'What beverage is made by adding hot water to espresso?',
     op: ['Americano', 'Coartado', 'Doppio', 'Affogato'],
     an: 'Americano',
-    ex: null,
+    ex: 'Americano contains hot water and espresso with a 2:1 ratio.',
     qim: null,
     rim: null
   },
@@ -212,7 +212,7 @@ const loverQuiz = [
     qu: 'What is this brewing device called?',
     op: ['Moka Pot', 'French Press', 'AeroPress', 'Chemex'],
     an: 'Moka Pot',
-    ex: null,
+    ex: 'Moka pot is a stove-top or electric coffee maker that brews coffee by passing boiling water pressurised through ground coffee.',
     qim: '../assets/img/mokapot.jpg',
     rim: null
   },
@@ -258,8 +258,8 @@ const expertQuiz = [
   {
     qu: 'What is the biggest difference between Arabica and Robusta?',
     op: ['Growing Condition', 'Brewing Method', 'Cherry Size', 'Picking Method'],
-    an: 'Arabica coffee is grown anywhere upwards of 600+m on mountain tops and tropical environments. Whereas Robusta coffee is grown anywhere from sea level to around 600m.',
-    ex: null,
+    an: 'Growing Condition',
+    ex: 'Arabica coffee is grown anywhere upwards of 600+m on mountain tops and tropical environments. Whereas Robusta coffee is grown anywhere from sea level to around 600m.',
     qim: null,
     rim: null,
   },
@@ -287,7 +287,7 @@ const expertQuiz = [
     op: ['V60', 'Kalita Wave', 'Origami', 'Chemex'],
     an: 'V60',
     ex: null,
-    qim: '../assets/img/v60 jpg.jpeg',
+    qim: '../assets/img/v60 jpg.jpg',
     rim: null,
   },
 
@@ -336,7 +336,3 @@ const expertQuiz = [
     rim: null,
   }
 ]
-
-// // export {
-//   spellingQuiz, SnobQuiz, loverQuiz, expertQuiz
-// }

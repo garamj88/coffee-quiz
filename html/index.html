@@ -16,8 +16,7 @@
 </head>
 
 <body>
-  <div id="sound"><button id="mute">Sound On</button></div>
-
+  <div id="sound"><button id="mute">Cafe Ambience</button></div>
   <div id="header">
     <h1>COFFEE TRIVIA</h1>
     <h4>How Much Coffee Knowledge Do You Actually Have?</h4>
@@ -30,28 +29,23 @@
   <button class="btn-main" id="snob-btn">Are you a Coffee Lover or a Coffee Snob...?</button>
   </div>
 
-  <section id="container">
+  <section id="container" style="display: none">
+    <h2 id="category"></h2>
     <div id="countdown"></div>
     <div id="quiz-container" style="display: none"></div>
-    <!-- <h2 id="question"></h2>
-    <img id="question-image"> -->
-    <div id="options-btns">
-      <!-- <button class="opt-btn" id="option0"></button>
-      <button class="opt-btn" id="option1"></button>
-      <button class="opt-btn" id="option2"></button>
-      <button class="opt-btn" id="option3"></button> -->
-    </div>
+    <div id="options-btns"></div>
 
     <div id="answer-container" style="display: none">
       <h3 id="answer"></h3>
       <h4 id="explain"></h4>
       <img>
     </div>
+    <div id="proceed-btns" style="display: none">
+      <button id="next">Next</button>
+      <button id="to-main">Back to Main</button>
+    </div>
   </section>
-  <div id="proceed-btns" style="display: none">
-    <button id="next">Next</button>
-    <button id="to-main">Back to Main</button>
-  </div>
+
 </body>
 
 </html>

@@ -1,67 +1,51 @@
 // Cached ele refs
 
 // buttons
-const muteBtn = document.getElementById("mute")
+const muteBtn = document.getElementById("mute");
 const spellBtn = document.getElementById("spelling-btn");
 const loverBtn = document.getElementById("lover-btn");
 const xprtBtn = document.getElementById("expert-btn");
 const snobBtn = document.getElementById("snob-btn");
-// const mainBtns = document.getElementsByClassName("btn-main");
 const nextBtn = document.getElementById("next");
 const toMainBtn = document.getElementById("to-main");
-const opt0 = document.getElementById("option0");
-const opt1 = document.getElementById("option1");
-const opt2 = document.getElementById("option2");
-const opt3 = document.getElementById("option3");
-
-
-// divs / placeholders
 
 const catBtns = document.getElementById("category-btns");
-const container = document.getElementById("container")
+const container = document.getElementById("container");
 const optBtns = document.getElementById("options-btns");
 const proBtns = document.getElementById("proceed-btns");
-const song = new Audio('../assets/sound/894835456_231634354_1205527727.mp3')
-// console.log(optBtns)
-
+const song = new Audio('../assets/sound/894835456_231634354_1205527727.mp3');
 const header = document.getElementById("header");
 const quizQstn = document.getElementById("question");
-const qImg = document.getElementById('question-image')
+const qImg = document.getElementById('question-image');
 const quizCont = document.getElementById("quiz-container");
 const ansCont = document.getElementById("answer-container");
-const nswr = document.getElementById("answer")
+const catName = document.getElementById("category")
+const nswr = document.getElementById("answer");
 const xpln = document.getElementById("explain");
-const countdown = document.getElementById('countdown')
-
-
+const countdown = document.getElementById('countdown');
 
 // Consts & Variables
-
 let idx = 0;
 let score = 0;
 let quiz;
 let answered = false;
 let timeLeft;
+let timer;
 let playing = false;
 
 const passScore = 7;
-const failScore = 4;
 
-// Event Listeners
 
-nextBtn.addEventListener('click', handleNext);
 muteBtn.addEventListener('click', () => {
 if (playing) {
-  song.pause()
+  song.pause();
+  muteBtn.style.backgroundColor = 'white';
 } else {
-  song.play()
+  song.play();
+  muteBtn.style.backgroundColor = '#9999999f';
 }
-playing = !playing
+playing = !playing;
 });
-
-// MAIN PAGE
-// Play a background sound by default, add a button to mute
-// Change to 'Sound On' once clicked
 
 
 init = () => {
@@ -70,42 +54,41 @@ init = () => {
   loverBtn.style.display = 'none';
   xprtBtn.style.display = 'none';
   snobBtn.style.display = 'none';
-  // mainBtns.style.display = 'none';
   quizCont.style.display = 'block';
-  quizCont.textContent = '';
-  countdown.textContent = '';
-  // clearQuestion()
+  countdown.textContent = `120 sec left`;
+  container.style.display = 'block';
+
 };
 
 spellBtn.addEventListener('click', () => {
-  init()
-  timeLeft = 120;
-  startTimer()
+  clearQuestion();
+  init();
+  timeLeft = 119;
+  startTimer();
   idx = 0;
   score = 0;
   quiz = spellingQuiz.sort(() => Math.random() - 0.5);
-  console.log(spellingQuiz)
   renderQues();
   return;
 });
 
 loverBtn.addEventListener('click', () => {
-  init()
-  timeLeft = 120;
-  startTimer()
+  clearQuestion();
+  init();
+  timeLeft = 119;
+  startTimer();
   idx = 0;
   score = 0;
   quiz = loverQuiz.sort(() => Math.random() - 0.5);
   renderQues();
   return;
 });
-// You don't know much about coffee, but you like it!
-// You're a true coffee lover!
 
 xprtBtn.addEventListener('click', () => {
-  init()
-  timeLeft = 120;
-  startTimer()
+  clearQuestion();
+  init();
+  timeLeft = 119;
+  startTimer();
   idx = 0;
   score = 0;
   quiz = expertQuiz.sort(() => Math.random() - 0.5);
@@ -114,9 +97,10 @@ xprtBtn.addEventListener('click', () => {
 });
 
 snobBtn.addEventListener('click', () => {
-  init()
-  timeLeft = 10;
-  startTimer()
+  clearQuestion();
+  init();
+  timeLeft = 119;
+  startTimer();
   idx = 0;
   score = 0;
   quiz = snobQuiz.sort(() => Math.random() - 0.5);
@@ -124,62 +108,29 @@ snobBtn.addEventListener('click', () => {
   return;
 });
 
-// You know basics about coffee but you're not an expert. That's enough!
-// You know your stuff, you're an expert!
-
-// snobBtn.addEventListener('click', () => {
-
-// });
-// Be proud to admit you're a coffee snob!
-
 renderQues = () => {
-  const question = document.createElement('h2')
-  question.textContent = quiz[idx].qu
-  quizCont.appendChild(question)
+  const question = document.createElement('h2');
+  question.textContent = quiz[idx].qu;
+  quizCont.appendChild(question);
 
   quiz[idx].op.forEach((o, i) => {
-    const button = document.createElement('button')
-    button.id = o
-    button.classList.add('opt-btn')
-    button.textContent = o
-    button.addEventListener('click', (evt) => getAnswer(evt, o))
-    optBtns.appendChild(button)
-  })
+    const button = document.createElement('button');
+    button.id = o;
+    button.classList.add('opt-btn');
+    button.textContent = o;
+    button.addEventListener('click', (evt) => getAnswer(evt, o));
+    optBtns.appendChild(button);
+  });
 
   if (quiz[idx].qim) {
-    const img = document.createElement('img')
-    img.src = `${quiz[idx].qim}`
-    img.id = "question-image"
-    quizCont.appendChild(img)
-  }
-  // if (quiz[idx].op.length === 4) {
-  //   quizQstn.textContent = quiz[idx].qu;
-  //   op = quiz[idx].op.sort(() => Math.random() - 0.5);
-  //   opt0.textContent = quiz[idx].op[0];
-  //   opt1.textContent = quiz[idx].op[1];
-  //   opt2.textContent = quiz[idx].op[2];
-  //   opt3.textContent = quiz[idx].op[3];
-  // } else {
-  //   quizQstn.textContent = quiz[idx].qu;
-  //   opt0.textContent = quiz[idx].op[0];
-  //   opt1.textContent = quiz[idx].op[1];
-  //   opt2.remove();
-  //   opt3.remove();
-  // };
+    const img = document.createElement('img');
+    img.src = `${quiz[idx].qim}`;
+    img.id = "question-image";
+    quizCont.appendChild(img);
+  };
+};
 
-  // if (quiz[idx].qim) {
-  //   qImg.setAttribute('src', quiz[idx].qim) //check back for image crash
-  // } else {
-  //   qImg.style.display = 'none';
-  // }
-  // ansCont.style.display ='none';
-}
-
-// opt0.addEventListener('click', () => getAnswer(0));
-// opt1.addEventListener('click', () => getAnswer(1));
-// opt2.addEventListener('click', () => getAnswer(2));
-
-// nextBtn.addEventListener('click', () => renderQues())
+nextBtn.addEventListener('click', handleNext);
 
 function handleNext() {
   if (answered === false) return;
@@ -188,101 +139,67 @@ function handleNext() {
   idx++;
   if (checkEndGame() === true) return;
   proBtns.style.display = 'none';
-  renderQues()
-}
+  renderQues();
+};
 
 function checkEndGame() {
-  if (idx > 9 || timeLeft < 0) { // modify condition: || timeout === true
-    // clearQuestion()
-    quizCont.textContent = `Your score is ${score} / 10`
+  if (idx > 9 || timeLeft < 0) {
+    if (score >= passScore) {
+      quizCont.textContent = `Your score is ${score}/10! Congrats, you passed!`
+    } else {
+      quizCont.textContent = `Your score is ${score}/10... Try again next time`
+    }
     clearInterval(timer)
     return true;
   } else {
     return false;
   }
 }
-let timer
+
 function startTimer() {
   clearInterval(timer)
   timer = setInterval(() => {
-    countdown.textContent = timeLeft
+    countdown.textContent = `${timeLeft} sec left`;
     timeLeft--;
     if(timeLeft < 0) {
-      console.log('times up')
       clearInterval(timer)
       clearQuestion()
       checkEndGame()
       proBtns.style.display = 'block';
     }
-
   }, 1000)
 }
 
-
-// in startTimer, when timer runs out, we will set timesOut = true
-// then will call checkEndGame
-// create new state var call timesOut
 function clearQuestion() {
   ansCont.style.display = 'none';
-  // nswr.textContent = 'none';
-  // xpln.textContent = 'none';
   quizCont.innerHTML = '';
   optBtns.innerHTML = '';
 }
 
 getAnswer = (evt, o) => {
   proBtns.style.display = 'block';
-
+  ansCont.style.display = 'block';
+  xpln.innerHTML = '';
+  
   if (answered === true) return;
-
   answered = true;
+
   if (o === quiz[idx].an) {
     ansCont.style.display = 'block';
-    nswr.textContent = `C☕️rrect!`;
+    //nswr.textContent = `Correct!`;
+    evt.target.style.backgroundColor = 'green'
+    evt.target.style.opacity = 0.5;
     xpln.textContent = quiz[idx].ex;
     score++;
   } else {
     ansCont.style.display = 'block';
-    nswr.textContent = `Wrong!`;
+    //nswr.textContent = `Wrong!`;
+    evt.target.style.backgroundColor = '#ff0000'
+    evt.target.style.opacity = 0.5;
+    nswr.textContent = `Correct answer is: ${quiz[idx].an}`;
     xpln.textContent = quiz[idx].ex;
   }
-  
-  // if (idx < quiz.length - 1) {
-  //   if (quiz[idx].op[i] === quiz[idx].an) {
-  //     ansCont.style.display = 'block';
-  //     nswr.textContent = `C☕️rrect!`;
-  //     xpln.textContent = quiz[idx].ex;
-  //     score++;
-  //     idx++;
-  //   } else {
-  //     ansCont.style.display = 'block';
-  //     nswr.textContent = `Wrong!`;
-  //     xpln.textContent = quiz[idx].ex;
-  //     idx++;
-  //   }
-  // } else {
-  //   if (quiz[idx].op[i] === quiz[idx].an) {
-  //     score++;
-  //     ansCont.style.display = 'block';
-  //     nswr.textContent = `C☕️rrect!`;
-  //   } else {
-  //     ansCont.style.display = 'block';
-  //     quiz[idx].an;
-  //     xpln.textContent = quiz[idx].ex;
-  //   }
-  // };
 }
-
-
-
-
-// // 3) When iteration for the questions is over, check the score and render the result card container
-//   // if score = 10, render the result container with a message and go back to main button
-//   // else if 4 < score < 10, render the result container with another message and go back to main button
-//   // else, render the result container with the other message and go back to main button
-//   // Add a 45 sec timer for each question for the lover? & expert? category
-
-// }
 
 toMainBtn.addEventListener('click', () => {
   header.style.display = 'block';
@@ -290,8 +207,11 @@ toMainBtn.addEventListener('click', () => {
   loverBtn.style.display = 'block';
   xprtBtn.style.display = 'block';
   snobBtn.style.display = 'block';
-  // container.style.display = 'none';
+  container.style.display = 'none';
   countdown.textContent = '';
   quizCont.textContent = '';
   proBtns.style.display = 'none';
+  ansCont.textContent = '';
+  clearQuestion()
+  clearInterval(timer)
 });

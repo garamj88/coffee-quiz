@@ -31,11 +31,32 @@ body {
   min-height: 100vh;
 }
 
+
+#container {
+  display: grid;
+  width: 700px;
+  text-align: left;
+  border: .5px solid gray;
+  padding: 2%;
+}
+
+#options-btns {
+  display: grid;
+}
+
 .opt-btn {
-  padding: 10px;
-  border: 1px solid gray;
+  padding: 15px;
+  width: 490px;
+  border: .5px solid gray;
   border-radius: 15px;
   margin-top: 10px;
+  font-size: 20px;
+  text-align: left;
+  background-color: white;
+}
+
+.opt-btn:hover {
+  background-color: #e6e6e6;
 }
 
 #mute {
@@ -44,25 +65,38 @@ body {
   right: 50px;
   border-radius: 25px;
   padding: 5px;
-  width: 85px;
-  border: 1px solid black;
+  width: 100px;
+  height: 50px;
+  border: 1px solid #8585859f;
   background-color: white;
 }
+
 
 #header {
   text-align: center;
   padding-bottom: 3%;
 }
 
+img {
+  max-width: 400px;
+}
+
 .btn-main {
   width: 60%;
   padding: 3%;
   margin-top: 10px;
-  font-size: 2rem;
+  font-size: 1em;
   border-radius: 20px;
   border: .5px solid #9999999f;
   color: #464646;
   background-color: white;
+}
+
+
+#countdown {
+  font-size: 20px;
+  display: grid;
+  justify-content: right;
 }
 
 .btn-main:hover {
@@ -71,10 +105,19 @@ body {
 }
 
 
-#options-btns {
-  gap: 1vmin;
+#next, #to-main {
+  margin-top: 20px;
+  width: 180px;
+  border-radius: 15px;
+  border: .5px solid #9999999f;
+  padding: 2%;
+  font-size: 17px;
+  background-color: white;
 }
 
+#next:hover, #to-main:hover {
+  background-color:#e6e6e6;
+}
 
 /* color theme to be mocha */
 /* find pantones for shades of mocha */
