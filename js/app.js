@@ -14,12 +14,14 @@ const opt1 = document.getElementById("option1");
 const opt2 = document.getElementById("option2");
 const opt3 = document.getElementById("option3");
 
+
 // divs / placeholders
 
 const catBtns = document.getElementById("category-btns");
 const container = document.getElementById("container")
 const optBtns = document.getElementById("options-btns");
 const proBtns = document.getElementById("proceed-btns");
+const song = new Audio('../assets/sound/894835456_231634354_1205527727.mp3')
 // console.log(optBtns)
 
 const header = document.getElementById("header");
@@ -40,18 +42,22 @@ let score = 0;
 let quiz;
 let answered = false;
 let timeLeft;
+let playing = false;
 
 const passScore = 7;
 const failScore = 4;
 
-// // Pick a question in a random order from the questions array
-//   // present the options in a random order
-//   // present the answers buttons in a random order for single selection questions
-
 // Event Listeners
 
 nextBtn.addEventListener('click', handleNext);
-// muteBtn.addEventListener('click', soundMute);
+muteBtn.addEventListener('click', () => {
+if (playing) {
+  song.pause()
+} else {
+  song.play()
+}
+playing = !playing
+});
 
 // MAIN PAGE
 // Play a background sound by default, add a button to mute
@@ -66,26 +72,58 @@ init = () => {
   snobBtn.style.display = 'none';
   // mainBtns.style.display = 'none';
   quizCont.style.display = 'block';
+  quizCont.textContent = '';
+  countdown.textContent = '';
   // clearQuestion()
 };
 
 spellBtn.addEventListener('click', () => {
   init()
-  console.log('')
-  timeLeft = 10;
+  timeLeft = 120;
   startTimer()
   idx = 0;
   score = 0;
   quiz = spellingQuiz.sort(() => Math.random() - 0.5);
+  console.log(spellingQuiz)
   renderQues();
   return;
 });
 
-// loverBtn.addEventListener('click', startLover);
+loverBtn.addEventListener('click', () => {
+  init()
+  timeLeft = 120;
+  startTimer()
+  idx = 0;
+  score = 0;
+  quiz = loverQuiz.sort(() => Math.random() - 0.5);
+  renderQues();
+  return;
+});
 // You don't know much about coffee, but you like it!
 // You're a true coffee lover!
 
-// xprtBtn.addEventListener('click', startExpert);
+xprtBtn.addEventListener('click', () => {
+  init()
+  timeLeft = 120;
+  startTimer()
+  idx = 0;
+  score = 0;
+  quiz = expertQuiz.sort(() => Math.random() - 0.5);
+  renderQues();
+  return;
+});
+
+snobBtn.addEventListener('click', () => {
+  init()
+  timeLeft = 10;
+  startTimer()
+  idx = 0;
+  score = 0;
+  quiz = snobQuiz.sort(() => Math.random() - 0.5);
+  renderQues();
+  return;
+});
+
 // You know basics about coffee but you're not an expert. That's enough!
 // You know your stuff, you're an expert!
 
@@ -252,6 +290,8 @@ toMainBtn.addEventListener('click', () => {
   loverBtn.style.display = 'block';
   xprtBtn.style.display = 'block';
   snobBtn.style.display = 'block';
-  container.style.display = 'none';
+  // container.style.display = 'none';
+  countdown.textContent = '';
+  quizCont.textContent = '';
   proBtns.style.display = 'none';
 });
