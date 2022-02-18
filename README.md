@@ -24,6 +24,7 @@ This coffee trivia game will help the user learning fun facts from the history o
 
 ## Stretch Goals
 
+* Code cleanup
 * Dark mode
 * Sounds for action
 * Responsive desgin
