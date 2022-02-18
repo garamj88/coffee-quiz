@@ -19,6 +19,7 @@ const opt3 = document.getElementById("option3");
 const catBtns = document.getElementById("category-btns");
 const container = document.getElementById("container")
 const optBtns = document.getElementById("options-btns");
+const proBtns = document.getElementById("proceed-btns");
 // console.log(optBtns)
 
 const header = document.getElementById("header");
@@ -28,6 +29,8 @@ const quizCont = document.getElementById("quiz-container");
 const ansCont = document.getElementById("answer-container");
 const nswr = document.getElementById("answer")
 const xpln = document.getElementById("explain");
+const countdown = document.getElementById('countdown')
+
 
 
 // Consts & Variables
@@ -36,6 +39,7 @@ let idx = 0;
 let score = 0;
 let quiz;
 let answered = false;
+let timeLeft;
 
 const passScore = 7;
 const failScore = 4;
@@ -62,14 +66,19 @@ init = () => {
   snobBtn.style.display = 'none';
   // mainBtns.style.display = 'none';
   quizCont.style.display = 'block';
+  // clearQuestion()
 };
 
 spellBtn.addEventListener('click', () => {
   init()
+  console.log('')
+  timeLeft = 10;
+  startTimer()
+  idx = 0;
   score = 0;
   quiz = spellingQuiz.sort(() => Math.random() - 0.5);
   renderQues();
-  //getResult();
+  return;
 });
 
 // loverBtn.addEventListener('click', startLover);
@@ -101,7 +110,7 @@ renderQues = () => {
 
   if (quiz[idx].qim) {
     const img = document.createElement('img')
-    img.src = quiz[idx].qim
+    img.src = `${quiz[idx].qim}`
     img.id = "question-image"
     quizCont.appendChild(img)
   }
@@ -139,18 +148,53 @@ function handleNext() {
   answered = false;
   clearQuestion();
   idx++;
+  if (checkEndGame() === true) return;
+  proBtns.style.display = 'none';
   renderQues()
 }
 
+function checkEndGame() {
+  if (idx > 9 || timeLeft < 0) { // modify condition: || timeout === true
+    // clearQuestion()
+    quizCont.textContent = `Your score is ${score} / 10`
+    clearInterval(timer)
+    return true;
+  } else {
+    return false;
+  }
+}
+let timer
+function startTimer() {
+  clearInterval(timer)
+  timer = setInterval(() => {
+    countdown.textContent = timeLeft
+    timeLeft--;
+    if(timeLeft < 0) {
+      console.log('times up')
+      clearInterval(timer)
+      clearQuestion()
+      checkEndGame()
+      proBtns.style.display = 'block';
+    }
+
+  }, 1000)
+}
+
+
+// in startTimer, when timer runs out, we will set timesOut = true
+// then will call checkEndGame
+// create new state var call timesOut
 function clearQuestion() {
   ansCont.style.display = 'none';
-  nswr.textContent = '';
-  xpln.textContent = '';
+  // nswr.textContent = 'none';
+  // xpln.textContent = 'none';
   quizCont.innerHTML = '';
   optBtns.innerHTML = '';
 }
 
 getAnswer = (evt, o) => {
+  proBtns.style.display = 'block';
+
   if (answered === true) return;
 
   answered = true;
@@ -192,7 +236,7 @@ getAnswer = (evt, o) => {
 }
 
 
-// function getResult() {
+
 
 // // 3) When iteration for the questions is over, check the score and render the result card container
 //   // if score = 10, render the result container with a message and go back to main button
@@ -208,6 +252,6 @@ toMainBtn.addEventListener('click', () => {
   loverBtn.style.display = 'block';
   xprtBtn.style.display = 'block';
   snobBtn.style.display = 'block';
-  quizCont.style.display = 'none';
-  ansCont.style.display = 'none';
+  container.style.display = 'none';
+  proBtns.style.display = 'none';
 });
